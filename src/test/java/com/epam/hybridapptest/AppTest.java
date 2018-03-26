@@ -35,15 +35,13 @@ public class AppTest {
     }
 
     @Test
-    public void openNewTab() {
+    public void openNewTabAndSearchGmail() {
         By newTab = By.id("com.android.chrome:id/tab_switcher_button");
         driver.findElement(newTab).click();
         By plusTab = By.id("com.android.chrome:id/new_tab_button");
         driver.findElement(plusTab).click();
-    }
 
-    @Test
-    public void enterValueInSearchFieldAndAssertIt() {
+        driver.switchTo().window("WebView");
         By search = By.id("q");
         searchInput = driver.findElement(search);
         searchInput.sendKeys("https://mail.google.com" + "\n");
